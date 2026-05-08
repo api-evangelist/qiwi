@@ -30,6 +30,8 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.qiwi.com/ru/payments/
+      - type: OpenAPI
+        url: openapi/qiwi-openapi.yml
   - aid: qiwi:qiwi-legal-entity-payouts
     name: Qiwi Legal Entity Payouts
     description: >-
