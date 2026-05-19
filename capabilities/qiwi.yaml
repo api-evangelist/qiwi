@@ -1,0 +1,695 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: QIWI Payments API
+  description: 'QIWI Payments API. 21 operations. Lead operation: Create invoice. Self-contained Naftiko capability covering
+    one Qiwi business surface.'
+  tags:
+  - Qiwi
+  - QIWI Payments API
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    QIWI_API_KEY: QIWI_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: qiwi
+    baseUri: https://api.qiwi.com
+    description: QIWI Payments API business capability. Self-contained, no shared references.
+    resources:
+    - name: partner-payin-v1-sites-siteId-bills-billId
+      path: /partner/payin/v1/sites/{siteId}/bills/{billId}
+      operations:
+      - name: createinvoice
+        method: PUT
+        description: Create invoice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getinvoice
+        method: GET
+        description: Get invoice status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-bills-billId-payments
+      path: /partner/payin/v1/sites/{siteId}/bills/{billId}/payments
+      operations:
+      - name: listinvoicepayments
+        method: GET
+        description: List payments for invoice
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-check-card
+      path: /partner/payin/v1/sites/{siteId}/check-card
+      operations:
+      - name: checkcard
+        method: POST
+        description: Check card
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-check-card-checkId
+      path: /partner/payin/v1/sites/{siteId}/check-card/{checkId}
+      operations:
+      - name: getcardcheck
+        method: GET
+        description: Get card check status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-check-card-checkId-complete
+      path: /partner/payin/v1/sites/{siteId}/check-card/{checkId}/complete
+      operations:
+      - name: completecardcheck
+        method: POST
+        description: Complete card verification
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-payments-sbp-token
+      path: /partner/payin/v1/sites/{siteId}/payments/sbp-token
+      operations:
+      - name: paysbptoken
+        method: PUT
+        description: Pay via SBP token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-payments-paymentId
+      path: /partner/payin/v1/sites/{siteId}/payments/{paymentId}
+      operations:
+      - name: createpayment
+        method: PUT
+        description: Create payment
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getpayment
+        method: GET
+        description: Get payment status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-payments-paymentId-captures-captureId
+      path: /partner/payin/v1/sites/{siteId}/payments/{paymentId}/captures/{captureId}
+      operations:
+      - name: capturepayment
+        method: PUT
+        description: Confirm payment (capture)
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getcapture
+        method: GET
+        description: Get capture status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-payments-paymentId-complete
+      path: /partner/payin/v1/sites/{siteId}/payments/{paymentId}/complete
+      operations:
+      - name: completepayment3ds
+        method: POST
+        description: Complete 3DS authentication
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-qr
+      path: /partner/payin/v1/sites/{siteId}/qr
+      operations:
+      - name: createqrcode
+        method: POST
+        description: Generate SBP QR code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-qr-qrCodeUid
+      path: /partner/payin/v1/sites/{siteId}/qr/{qrCodeUid}
+      operations:
+      - name: getqrcode
+        method: GET
+        description: Get QR code status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-refunds
+      path: /partner/payin/v1/sites/{siteId}/refunds
+      operations:
+      - name: listrefunds
+        method: GET
+        description: List refunds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-refunds-refundId
+      path: /partner/payin/v1/sites/{siteId}/refunds/{refundId}
+      operations:
+      - name: createrefund
+        method: PUT
+        description: Execute refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getrefund
+        method: GET
+        description: Get refund status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payin-v1-sites-siteId-refunds-refundId-decline
+      path: /partner/payin/v1/sites/{siteId}/refunds/{refundId}/decline
+      operations:
+      - name: declinerefund
+        method: POST
+        description: Decline refund
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payout-v1-sites-siteId-payouts-payoutId
+      path: /partner/payout/v1/sites/{siteId}/payouts/{payoutId}
+      operations:
+      - name: createpayout
+        method: PUT
+        description: Create payout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: getpayout
+        method: GET
+        description: Get payout status
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: partner-payout-v1-sites-siteId-payouts-payoutId-complete
+      path: /partner/payout/v1/sites/{siteId}/payouts/{payoutId}/complete
+      operations:
+      - name: completepayout
+        method: POST
+        description: Complete payout
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.QIWI_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: qiwi-rest
+    port: 8080
+    description: REST adapter for QIWI Payments API. One Spectral-compliant resource per consumed operation, prefixed with
+      /v1.
+    resources:
+    - path: /v1/partner/payin/v1/sites/{siteid}/bills/{billid}
+      name: partner-payin-v1-sites-siteid-bills-billid
+      description: REST surface for partner-payin-v1-sites-siteId-bills-billId.
+      operations:
+      - method: PUT
+        name: createinvoice
+        description: Create invoice
+        call: qiwi.createinvoice
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getinvoice
+        description: Get invoice status
+        call: qiwi.getinvoice
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/bills/{billid}/payments
+      name: partner-payin-v1-sites-siteid-bills-billid-payments
+      description: REST surface for partner-payin-v1-sites-siteId-bills-billId-payments.
+      operations:
+      - method: GET
+        name: listinvoicepayments
+        description: List payments for invoice
+        call: qiwi.listinvoicepayments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/check-card
+      name: partner-payin-v1-sites-siteid-check-card
+      description: REST surface for partner-payin-v1-sites-siteId-check-card.
+      operations:
+      - method: POST
+        name: checkcard
+        description: Check card
+        call: qiwi.checkcard
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/check-card/{checkid}
+      name: partner-payin-v1-sites-siteid-check-card-checkid
+      description: REST surface for partner-payin-v1-sites-siteId-check-card-checkId.
+      operations:
+      - method: GET
+        name: getcardcheck
+        description: Get card check status
+        call: qiwi.getcardcheck
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/check-card/{checkid}/complete
+      name: partner-payin-v1-sites-siteid-check-card-checkid-complete
+      description: REST surface for partner-payin-v1-sites-siteId-check-card-checkId-complete.
+      operations:
+      - method: POST
+        name: completecardcheck
+        description: Complete card verification
+        call: qiwi.completecardcheck
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/payments/sbp-token
+      name: partner-payin-v1-sites-siteid-payments-sbp-token
+      description: REST surface for partner-payin-v1-sites-siteId-payments-sbp-token.
+      operations:
+      - method: PUT
+        name: paysbptoken
+        description: Pay via SBP token
+        call: qiwi.paysbptoken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/payments/{paymentid}
+      name: partner-payin-v1-sites-siteid-payments-paymentid
+      description: REST surface for partner-payin-v1-sites-siteId-payments-paymentId.
+      operations:
+      - method: PUT
+        name: createpayment
+        description: Create payment
+        call: qiwi.createpayment
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getpayment
+        description: Get payment status
+        call: qiwi.getpayment
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/payments/{paymentid}/captures/{captureid}
+      name: partner-payin-v1-sites-siteid-payments-paymentid-captures-captureid
+      description: REST surface for partner-payin-v1-sites-siteId-payments-paymentId-captures-captureId.
+      operations:
+      - method: PUT
+        name: capturepayment
+        description: Confirm payment (capture)
+        call: qiwi.capturepayment
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcapture
+        description: Get capture status
+        call: qiwi.getcapture
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/payments/{paymentid}/complete
+      name: partner-payin-v1-sites-siteid-payments-paymentid-complete
+      description: REST surface for partner-payin-v1-sites-siteId-payments-paymentId-complete.
+      operations:
+      - method: POST
+        name: completepayment3ds
+        description: Complete 3DS authentication
+        call: qiwi.completepayment3ds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/qr
+      name: partner-payin-v1-sites-siteid-qr
+      description: REST surface for partner-payin-v1-sites-siteId-qr.
+      operations:
+      - method: POST
+        name: createqrcode
+        description: Generate SBP QR code
+        call: qiwi.createqrcode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/qr/{qrcodeuid}
+      name: partner-payin-v1-sites-siteid-qr-qrcodeuid
+      description: REST surface for partner-payin-v1-sites-siteId-qr-qrCodeUid.
+      operations:
+      - method: GET
+        name: getqrcode
+        description: Get QR code status
+        call: qiwi.getqrcode
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/refunds
+      name: partner-payin-v1-sites-siteid-refunds
+      description: REST surface for partner-payin-v1-sites-siteId-refunds.
+      operations:
+      - method: GET
+        name: listrefunds
+        description: List refunds
+        call: qiwi.listrefunds
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/refunds/{refundid}
+      name: partner-payin-v1-sites-siteid-refunds-refundid
+      description: REST surface for partner-payin-v1-sites-siteId-refunds-refundId.
+      operations:
+      - method: PUT
+        name: createrefund
+        description: Execute refund
+        call: qiwi.createrefund
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getrefund
+        description: Get refund status
+        call: qiwi.getrefund
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payin/v1/sites/{siteid}/refunds/{refundid}/decline
+      name: partner-payin-v1-sites-siteid-refunds-refundid-decline
+      description: REST surface for partner-payin-v1-sites-siteId-refunds-refundId-decline.
+      operations:
+      - method: POST
+        name: declinerefund
+        description: Decline refund
+        call: qiwi.declinerefund
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payout/v1/sites/{siteid}/payouts/{payoutid}
+      name: partner-payout-v1-sites-siteid-payouts-payoutid
+      description: REST surface for partner-payout-v1-sites-siteId-payouts-payoutId.
+      operations:
+      - method: PUT
+        name: createpayout
+        description: Create payout
+        call: qiwi.createpayout
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getpayout
+        description: Get payout status
+        call: qiwi.getpayout
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/partner/payout/v1/sites/{siteid}/payouts/{payoutid}/complete
+      name: partner-payout-v1-sites-siteid-payouts-payoutid-complete
+      description: REST surface for partner-payout-v1-sites-siteId-payouts-payoutId-complete.
+      operations:
+      - method: POST
+        name: completepayout
+        description: Complete payout
+        call: qiwi.completepayout
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: qiwi-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for QIWI Payments API. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: create-invoice
+      description: Create invoice
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.createinvoice
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-invoice-status
+      description: Get invoice status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getinvoice
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-payments-invoice
+      description: List payments for invoice
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.listinvoicepayments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: check-card
+      description: Check card
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: qiwi.checkcard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-card-check-status
+      description: Get card check status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getcardcheck
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: complete-card-verification
+      description: Complete card verification
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qiwi.completecardcheck
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: pay-sbp-token
+      description: Pay via SBP token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.paysbptoken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-payment
+      description: Create payment
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.createpayment
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-payment-status
+      description: Get payment status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getpayment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: confirm-payment-capture
+      description: Confirm payment (capture)
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.capturepayment
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-capture-status
+      description: Get capture status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getcapture
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: complete-3ds-authentication
+      description: Complete 3DS authentication
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qiwi.completepayment3ds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: generate-sbp-qr-code
+      description: Generate SBP QR code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qiwi.createqrcode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-qr-code-status
+      description: Get QR code status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getqrcode
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-refunds
+      description: List refunds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.listrefunds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: execute-refund
+      description: Execute refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.createrefund
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-refund-status
+      description: Get refund status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getrefund
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: decline-refund
+      description: Decline refund
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qiwi.declinerefund
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-payout
+      description: Create payout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: qiwi.createpayout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-payout-status
+      description: Get payout status
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: qiwi.getpayout
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: complete-payout
+      description: Complete payout
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: qiwi.completepayout
+      outputParameters:
+      - type: object
+        mapping: $.
