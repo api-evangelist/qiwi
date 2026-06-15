@@ -1,0 +1,497 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "QIWI Payments API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get invoice status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/bills/:billId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "billId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get invoice status"
+    },
+    {
+      "info": {
+        "name": "Create invoice",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/bills/:billId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "billId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create invoice"
+    },
+    {
+      "info": {
+        "name": "List payments for invoice",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/bills/:billId/payments",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "billId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List payments for invoice"
+    },
+    {
+      "info": {
+        "name": "Get payment status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/:paymentId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paymentId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get payment status"
+    },
+    {
+      "info": {
+        "name": "Create payment",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/:paymentId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paymentId",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create payment"
+    },
+    {
+      "info": {
+        "name": "Complete 3DS authentication",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/:paymentId/complete",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paymentId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Complete 3DS authentication"
+    },
+    {
+      "info": {
+        "name": "Get capture status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/:paymentId/captures/:captureId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paymentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "captureId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get capture status"
+    },
+    {
+      "info": {
+        "name": "Confirm payment (capture)",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/:paymentId/captures/:captureId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "paymentId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "captureId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Confirm payment (capture)"
+    },
+    {
+      "info": {
+        "name": "Get refund status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/refunds/:refundId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "refundId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get refund status"
+    },
+    {
+      "info": {
+        "name": "Execute refund",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/refunds/:refundId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "refundId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Execute refund"
+    },
+    {
+      "info": {
+        "name": "List refunds",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/refunds",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List refunds"
+    },
+    {
+      "info": {
+        "name": "Decline refund",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/refunds/:refundId/decline",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "refundId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Decline refund"
+    },
+    {
+      "info": {
+        "name": "Generate SBP QR code",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/qr",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Generate SBP QR code"
+    },
+    {
+      "info": {
+        "name": "Get QR code status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/qr/:qrCodeUid",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "qrCodeUid",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get QR code status"
+    },
+    {
+      "info": {
+        "name": "Pay via SBP token",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/payments/sbp-token",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Pay via SBP token"
+    },
+    {
+      "info": {
+        "name": "Check card",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/check-card",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Check card"
+    },
+    {
+      "info": {
+        "name": "Get card check status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/check-card/:checkId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "checkId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get card check status"
+    },
+    {
+      "info": {
+        "name": "Complete card verification",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payin/v1/sites/:siteId/check-card/:checkId/complete",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "checkId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Complete card verification"
+    },
+    {
+      "info": {
+        "name": "Get payout status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.qiwi.com/partner/payout/v1/sites/:siteId/payouts/:payoutId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "payoutId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get payout status"
+    },
+    {
+      "info": {
+        "name": "Create payout",
+        "type": "http"
+      },
+      "http": {
+        "method": "PUT",
+        "url": "https://api.qiwi.com/partner/payout/v1/sites/:siteId/payouts/:payoutId",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "payoutId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Create payout"
+    },
+    {
+      "info": {
+        "name": "Complete payout",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.qiwi.com/partner/payout/v1/sites/:siteId/payouts/:payoutId/complete",
+        "params": [
+          {
+            "name": "siteId",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "payoutId",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Complete payout"
+    }
+  ],
+  "bundled": true
+}
