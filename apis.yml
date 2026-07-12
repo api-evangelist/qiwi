@@ -124,6 +124,10 @@ apis:
       - type: Documentation
         url: https://developer.qiwi.com/ru/p2p-payments/
 common:
+  - type: DomainSecurity
+    url: security/qiwi-domain-security.yml
+  - type: Authentication
+    url: authentication/qiwi-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/qiwi
   - type: Portal
