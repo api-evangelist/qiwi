@@ -124,6 +124,8 @@ apis:
       - type: Documentation
         url: https://developer.qiwi.com/ru/p2p-payments/
 common:
+  - type: AgenticAccess
+    url: agentic-access/qiwi-agentic-access.yml
   - type: DomainSecurity
     url: security/qiwi-domain-security.yml
   - type: Authentication
