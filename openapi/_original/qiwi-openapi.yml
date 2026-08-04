@@ -1,0 +1,288 @@
+openapi: 3.1.0
+info:
+  title: QIWI Payments API
+  description: QIWI Payment Protocol REST API for payments, refunds, captures, payouts, SBP QR codes and card verification.
+  version: 1.0.0
+  x-generated-from: https://developer.qiwi.com/ru/payments/
+  x-generated-by: claude-crawl-2026-05-08
+servers:
+  - url: https://api.qiwi.com
+    description: QIWI Production API
+security:
+  - bearerAuth: []
+paths:
+  /partner/payin/v1/sites/{siteId}/bills/{billId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: billId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Create invoice
+      operationId: createInvoice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GenericRequest' }
+      responses:
+        '200': { description: Invoice created, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+    get:
+      summary: Get invoice status
+      operationId: getInvoice
+      responses:
+        '200': { description: Invoice details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/bills/{billId}/payments:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: billId
+        required: true
+        schema: { type: string }
+    get:
+      summary: List payments for invoice
+      operationId: listInvoicePayments
+      responses:
+        '200': { description: Payment list, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/payments/{paymentId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: paymentId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Create payment
+      operationId: createPayment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GenericRequest' }
+      responses:
+        '200': { description: Payment created, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+    get:
+      summary: Get payment status
+      operationId: getPayment
+      responses:
+        '200': { description: Payment details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/payments/{paymentId}/complete:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: paymentId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Complete 3DS authentication
+      operationId: completePayment3DS
+      responses:
+        '200': { description: 3DS completed, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/payments/{paymentId}/captures/{captureId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: paymentId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: captureId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Confirm payment (capture)
+      operationId: capturePayment
+      responses:
+        '200': { description: Capture created, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+    get:
+      summary: Get capture status
+      operationId: getCapture
+      responses:
+        '200': { description: Capture details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/refunds/{refundId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: refundId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Execute refund
+      operationId: createRefund
+      responses:
+        '200': { description: Refund created, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+    get:
+      summary: Get refund status
+      operationId: getRefund
+      responses:
+        '200': { description: Refund details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/refunds:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+    get:
+      summary: List refunds
+      operationId: listRefunds
+      responses:
+        '200': { description: Refund list, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/refunds/{refundId}/decline:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: refundId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Decline refund
+      operationId: declineRefund
+      responses:
+        '200': { description: Refund declined, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/qr:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Generate SBP QR code
+      operationId: createQrCode
+      responses:
+        '200': { description: QR generated, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/qr/{qrCodeUid}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: qrCodeUid
+        required: true
+        schema: { type: string }
+    get:
+      summary: Get QR code status
+      operationId: getQrCode
+      responses:
+        '200': { description: QR status, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/payments/sbp-token:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Pay via SBP token
+      operationId: paySbpToken
+      responses:
+        '200': { description: Payment via SBP, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/check-card:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Check card
+      operationId: checkCard
+      responses:
+        '200': { description: Card check started, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/check-card/{checkId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: checkId
+        required: true
+        schema: { type: string }
+    get:
+      summary: Get card check status
+      operationId: getCardCheck
+      responses:
+        '200': { description: Check details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payin/v1/sites/{siteId}/check-card/{checkId}/complete:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: checkId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Complete card verification
+      operationId: completeCardCheck
+      responses:
+        '200': { description: Verification completed, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payout/v1/sites/{siteId}/payouts/{payoutId}:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: payoutId
+        required: true
+        schema: { type: string }
+    put:
+      summary: Create payout
+      operationId: createPayout
+      responses:
+        '200': { description: Payout created, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+    get:
+      summary: Get payout status
+      operationId: getPayout
+      responses:
+        '200': { description: Payout details, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+  /partner/payout/v1/sites/{siteId}/payouts/{payoutId}/complete:
+    parameters:
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      - in: path
+        name: payoutId
+        required: true
+        schema: { type: string }
+    post:
+      summary: Complete payout
+      operationId: completePayout
+      responses:
+        '200': { description: Payout completed, content: { application/json: { schema: { $ref: '#/components/schemas/GenericResponse' } } } }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    GenericRequest:
+      type: object
+      additionalProperties: true
+    GenericResponse:
+      type: object
+      additionalProperties: true

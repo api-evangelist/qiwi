@@ -1,0 +1,14 @@
+{
+  "provider": "qiwi",
+  "sources": [
+    "qiwi-partner-api-openapi.yml"
+  ],
+  "outputs": [
+    "qiwi-partner-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
