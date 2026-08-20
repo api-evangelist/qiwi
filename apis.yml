@@ -20,6 +20,12 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/qiwi.png
 tags:
   - Payments
+  - Wallets
+  - Payouts
+  - Fintech
+  - Banking
+tags_raw:
+  - Payments
   - Wallet
   - Payouts
   - Fintech
@@ -46,6 +52,9 @@ apis:
   description: API for sending payouts directly to Qiwi wallets.
   humanURL: https://developer.qiwi.com/ru/topup-wallet/
   tags:
+  - Payouts
+  - Wallets
+  tags_raw:
   - Payouts
   - Wallet
   properties:
@@ -80,6 +89,9 @@ apis:
   humanURL: https://developer.qiwi.com/baas/
   tags:
   - Banking
+  - Backend-as-a-Service
+  tags_raw:
+  - Banking
   - BaaS
   properties:
   - type: Documentation
@@ -111,6 +123,9 @@ apis:
     users.
   humanURL: https://developer.qiwi.com/ru/qiwi-wallet-personal/
   tags:
+  - Wallets
+  - Personal
+  tags_raw:
   - Wallet
   - Personal
   properties:
