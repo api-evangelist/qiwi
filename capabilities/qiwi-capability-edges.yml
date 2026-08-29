@@ -1,0 +1,27 @@
+slug: qiwi
+provider: Qiwi
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Partner
+  spec_file: qiwi-partner-api-openapi.yml
+  capability_id: BC-1340.20
+  capability_id_l1: BC-1340
+  capability_name: Payment Processing Management
+  confidence: 0.7
+  evidence: PUT /partner/payin/v1/sites/{siteId}/payments/{paymentId} createPayment Create payment; POST
+    .../complete completePayment3DS Complete 3DS authentication; PUT .../refunds/{refundId} createRefund
+    Execute refund
+  reason: 'Merchant-facing payment acceptance: invoice creation, payment creation, 3DS, capture, refund,
+    payouts. Clearly Payments & Card Management; processing/authorisation is the closest L2, though it
+    also touches initiation and card transaction processing.'

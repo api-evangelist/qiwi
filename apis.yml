@@ -166,6 +166,9 @@ apis:
   - type: Documentation
     url: https://developer.qiwi.com/ru/payments/
 common:
+  - type: CapabilityMap
+    url: capabilities/qiwi-capability-edges.yml
+    name: Qiwi Business Capability Map
   - type: AgenticAccess
     url: agentic-access/qiwi-agentic-access.yml
   - type: DomainSecurity
