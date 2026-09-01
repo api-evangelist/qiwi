@@ -101,7 +101,7 @@ apis:
   humanURL: https://developer.qiwi.com/baas/
   tags:
   - Banking
-  - BaaS
+  - Backend-as-a-Service
   tags_raw:
   - Banking
   - BaaS
