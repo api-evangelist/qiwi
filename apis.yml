@@ -125,6 +125,9 @@ apis:
   description: API to retrieve Qiwi terminal locations and their service capabilities.
   humanURL: https://developer.qiwi.com/ru/qiwi-map/
   tags:
+  - Terminal
+  - Location
+  tags_raw:
   - Terminals
   - Locations
   properties:
@@ -161,6 +164,8 @@ apis:
   description: The Partner API from Qiwi — 16 operation(s) for partner.
   humanURL: https://developer.qiwi.com/ru/payments/
   tags:
+  - Partners
+  tags_raw:
   - Partner
   properties:
   - type: OpenAPI
