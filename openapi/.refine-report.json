@@ -1,7 +1,7 @@
 {
   "provider": "qiwi",
   "sources": [
-    "qiwi-partner-api-openapi.yml"
+    "_ae-authored/qiwi-openapi.yml"
   ],
   "outputs": [
     "qiwi-partner-api-openapi.yml"
@@ -9,6 +9,34 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "qiwi-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payin/v1/sites/{siteId}/bills/{billId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/bills/{billId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/bills/{billId}/payments -> Partner",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payin/v1/sites/{siteId}/payments/{paymentId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/payments/{paymentId} -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payin/v1/sites/{siteId}/payments/{paymentId}/complete -> Partner",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payin/v1/sites/{siteId}/payments/{paymentId}/captures/{captureId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/payments/{paymentId}/captures/{captureId} -> Partner",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payin/v1/sites/{siteId}/refunds/{refundId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/refunds/{refundId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/refunds -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payin/v1/sites/{siteId}/refunds/{refundId}/decline -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payin/v1/sites/{siteId}/qr -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/qr/{qrCodeUid} -> Partner",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payin/v1/sites/{siteId}/payments/sbp-token -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payin/v1/sites/{siteId}/check-card -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payin/v1/sites/{siteId}/check-card/{checkId} -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payin/v1/sites/{siteId}/check-card/{checkId}/complete -> Partner",
+    "qiwi-openapi.yml: tagged paths PUT /partner/payout/v1/sites/{siteId}/payouts/{payoutId} -> Partner",
+    "qiwi-openapi.yml: tagged paths GET /partner/payout/v1/sites/{siteId}/payouts/{payoutId} -> Partner",
+    "qiwi-openapi.yml: tagged paths POST /partner/payout/v1/sites/{siteId}/payouts/{payoutId}/complete -> Partner",
+    "qiwi-openapi.yml: declared missing tag: Partner",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "qiwi-partner-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
