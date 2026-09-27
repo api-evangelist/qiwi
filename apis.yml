@@ -103,10 +103,10 @@ apis:
   humanURL: https://developer.qiwi.com/baas/
   tags:
   - Banking
-  - Backend-as-a-Service
+  - Banking as a Service
   tags_raw:
   - Banking
-  - BaaS
+  - Banking as a Service
   properties:
   - type: Documentation
     url: https://developer.qiwi.com/baas/
