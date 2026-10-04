@@ -456,10 +456,10 @@ paths:
       - Partner
 components:
   schemas:
-    GenericRequest:
+    GenericResponse:
       type: object
       additionalProperties: true
-    GenericResponse:
+    GenericRequest:
       type: object
       additionalProperties: true
   securitySchemes:
