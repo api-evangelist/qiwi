@@ -46,7 +46,7 @@ tags_raw:
   - Banking
 url: https://raw.githubusercontent.com/api-evangelist/qiwi/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: qiwi:qiwi-legal-entity-payouts
@@ -173,6 +173,8 @@ apis:
   - type: Documentation
     url: https://developer.qiwi.com/ru/payments/
 common:
+  - url: https://qplus.ru/blog/
+    type: Blog
   - type: CapabilityMap
     url: capabilities/qiwi-capability-edges.yml
     name: Qiwi Business Capability Map
