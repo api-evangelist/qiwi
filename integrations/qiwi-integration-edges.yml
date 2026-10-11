@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/qiwi/integrations
+- https://n8n.io/integrations/qiwi/
+- https://composio.dev/toolkits/qiwi
+- https://monid.ai/tools/qiwi
+checked:
+- https://composio.dev/toolkits/qiwi
+- https://monid.ai/tools/qiwi
+- https://n8n.io/integrations/qiwi/
+- https://zapier.com/apps/qiwi/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
